@@ -1,0 +1,3 @@
+[submodule "external/WebCraft"]
+	path = external/WebCraft
+	url = https://github.com/adityarao2005/WebCraft.git
