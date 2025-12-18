@@ -112,7 +112,7 @@ int main()
 
         tcp_listener listener = make_tcp_listener();
         listener.bind(conn);
-        listener.listen(0);
+        listener.listen(1024);
 
         std::cout << "Waiting for incoming connections..." << std::endl;
 
@@ -124,7 +124,7 @@ int main()
 
             std::cout << "Accepted connection from " << peer.get_remote_host() << ":" << peer.get_remote_port() << std::endl;
 
-            co_await handle_client(std::move(peer));
+            fire_and_forget(handle_client(std::move(peer)));
 
             std::cout << "Connection handled and closed." << std::endl;
         }
